@@ -4,8 +4,6 @@ const puzzleInput = fs
   .readFileSync("01/input.txt", "utf-8", error => console.error(error))
   .split(/\n/);
 
-// puzzleInput.pop(); // get rid of empty last element
-
 const calculateFrequency = (frequency, inputs) => {
   for (let i = 0; i < inputs.length; i++) {
     frequency += +inputs[i];
