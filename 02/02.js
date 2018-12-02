@@ -20,8 +20,17 @@ const getCounts = input => {
 const duplicates = input => (input.filter(x => x === 2).length ? 1 : 0);
 const triplicates = input => (input.filter(x => x === 3).length ? 1 : 0);
 const getChecksum = input => {
-  const counts = input.map(x => getCounts(x));
-  return duplicates(counts) * triplicates(counts);
+  let twos = 0,
+    threes = 0;
+  const counts = input.map(x => {
+    let counts = getCounts(x);
+    twos += duplicates(counts);
+    threes += triplicates(counts);
+  });
+  return twos * threes;
 };
+
+// get answer for part 1
+// console.log(getChecksum(puzzleInput));
 
 module.exports = { getChecksum, getCounts, duplicates, triplicates };

@@ -32,7 +32,7 @@ describe("Day 02: Calculate checksums", () => {
     expect(triplicates([3, 2, 1])).to.equal(1);
     expect(triplicates([3, 3])).to.equal(1);
   });
-  xit("getChecksum() passes the example provided", () => {
+  it("getChecksum() passes the example provided", () => {
     expect(getChecksum(examples)).to.equal(12);
   });
 });
