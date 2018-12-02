@@ -17,13 +17,8 @@ const getCounts = input => {
   );
 };
 
-const duplicates = input =>
-  input.filter(x => x === 2).reduce((total, x) => (total += x ? 1 : 0));
-const triplicates = input =>
-  input
-    .map(y => y.filter(x => x === 3).length)
-    .reduce((total, x) => (total += x ? 1 : 0));
-
+const duplicates = input => (input.filter(x => x === 2).length ? 1 : 0);
+const triplicates = input => (input.filter(x => x === 3).length ? 1 : 0);
 const getChecksum = input => {
   const counts = input.map(x => getCounts(x));
   return duplicates(counts) * triplicates(counts);

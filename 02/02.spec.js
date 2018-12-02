@@ -25,9 +25,9 @@ describe("Day 02: Calculate checksums", () => {
   it("duplicates() takes an array of counts returns 1 if there is at least one duplicate, 0 otherwise", () => {
     expect(duplicates([1, 1, 1, 1, 1, 1])).to.equal(0);
     expect(duplicates([3, 2, 1])).to.equal(1);
-    expect(dupliactes([2, 1, 1, 2])).to.equal(1);
+    expect(duplicates([2, 1, 1, 2])).to.equal(1);
   });
-  xit("triplicates() takes an array of counts returns 1 if there is at least one triplicate, 0 otherwise", () => {
+  it("triplicates() takes an array of counts returns 1 if there is at least one triplicate, 0 otherwise", () => {
     expect(triplicates([1, 1, 1, 1, 1, 1])).to.equal(0);
     expect(triplicates([3, 2, 1])).to.equal(1);
     expect(triplicates([3, 3])).to.equal(1);
