@@ -1,17 +1,14 @@
 const { expect } = require("chai");
 const { calculateFrequency, findFirstRepeat } = require("./01.js");
 
-describe("function calculateFrequency", () => {
-  it("Correctly processes all sample arguments", () => {
+describe("Day 01: Frequency calibration", () => {
+  xit("calculateFrequency() correctly processes all sample arguments", () => {
     expect(calculateFrequency(0, ["+1", "-2", "+3", "+1"])).to.equal(3);
     expect(calculateFrequency(0, ["+1", "+1", "+1"])).to.equal(3);
     expect(calculateFrequency(0, ["+1", "+1", "-2"])).to.equal(0);
     expect(calculateFrequency(0, ["-1", "-2", "-3"])).to.equal(-6);
   });
-});
-
-describe("function findFirstRepeat", () => {
-  it("Correctly processes all sample arguments", () => {
+  xit("findFirstRepeat() correctly processes all sample arguments", () => {
     expect(findFirstRepeat(0, ["+1", "-2", "+3", "+1"])).to.equal(2);
     expect(findFirstRepeat(0, ["+1", "-1"])).to.equal(0);
     expect(findFirstRepeat(0, ["+3", "+3", "+4", "-2", "-4"])).to.equal(10);

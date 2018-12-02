@@ -12,7 +12,7 @@ const calculateFrequency = (frequency, inputs) => {
 };
 
 // get answer for part 1
-console.log("Frequency:", calculateFrequency(0, puzzleInput));
+// console.log("Frequency:", calculateFrequency(0, puzzleInput));
 
 const findFirstRepeat = (frequency, inputs) => {
   let frequencies = new Set();
@@ -33,6 +33,6 @@ const findFirstRepeat = (frequency, inputs) => {
 };
 
 // get answer for part 2
-console.log("First repeat:", findFirstRepeat(0, puzzleInput));
+// console.log("First repeat:", findFirstRepeat(0, puzzleInput));
 
 module.exports = { calculateFrequency, findFirstRepeat };
