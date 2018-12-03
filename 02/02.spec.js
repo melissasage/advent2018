@@ -52,13 +52,13 @@ describe("Day 02: Inventory Management System", () => {
     "axcye",
     "wvxyz"
   ];
-  it("compareWords() returns the number of characters different in two words", () => {
+  xit("compareWords() returns the number of characters different in two words", () => {
     expect(compareWords("abcde")("abcde")).to.equal(0);
     expect(compareWords("abcde")("axcye")).to.equal(2);
     expect(compareWords("fghij")("fguij")).to.equal(1);
     expect(compareWords("klmno")("pqrst")).to.equal(5);
   });
-  it("findPrototype() returns the letters in common between the correct IDs", () => {
+  xit("findPrototype() returns the letters in common between the correct IDs", () => {
     expect(findPrototype(examples2)).to.equal("fgij");
   });
 });
