@@ -8,7 +8,7 @@ const {
   findPrototype
 } = require("./02.js");
 
-describe("Day 02: Calculate checksums", () => {
+describe("Day 02: Inventory Management System", () => {
   const examples1 = [
     //           2  3
     "abcdef", // 0  0

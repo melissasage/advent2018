@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { calculateFrequency, findFirstRepeat } = require("./01.js");
 
-describe("Day 01: Frequency calibration", () => {
+describe("Day 01: Chronal Calibration", () => {
   xit("calculateFrequency() correctly processes all sample arguments", () => {
     expect(calculateFrequency(0, ["+1", "-2", "+3", "+1"])).to.equal(3);
     expect(calculateFrequency(0, ["+1", "+1", "+1"])).to.equal(3);
