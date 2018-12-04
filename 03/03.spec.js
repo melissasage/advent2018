@@ -1,12 +1,12 @@
 const { expect } = require("chai");
-const { parseData, claimFabric, countOverlapping } = require("./03.js");
+const {
+  parseData,
+  claimFabric,
+  makeFabric,
+  countOverlapping
+} = require("./03.js");
 
 describe("Day 03: No Matter How You Slice It", () => {
-  let fabric;
-  beforeEach(() => {
-    fabric = new Array(10).fill(new Array(10).fill(0));
-  });
-
   it(`parseData() turns a string into a correctly formatted JavaScript object`, () => {
     const data = parseData(`#123 @ 3,2: 5x4`);
     expect(typeof data).to.equal(`object`);
@@ -16,7 +16,12 @@ describe("Day 03: No Matter How You Slice It", () => {
     expect(data.width).to.equal(5);
     expect(data.height).to.equal(4);
   });
+  it(`makeFabric() returns an array of arrays, each of which references a different object`, () => {
+    const x = makeFabric(10);
+    expect(x[0] === x[1]).to.be.false;
+  });
   it(`claimFabric() increments indices representing claimed squares`, () => {
+    const fabric = makeFabric(10);
     claimFabric([`#1 @ 1,3: 4x4`])(fabric);
     expect(fabric[1][3]).to.equal(1);
     expect(fabric[3][4]).to.equal(1);
@@ -27,7 +32,9 @@ describe("Day 03: No Matter How You Slice It", () => {
     expect(fabric[3][4]).to.equal(2);
     expect(fabric[1][4]).to.equal(1);
   });
-  xit(
-    `countOverlapping() returns the number of square inches of fabric with multiple claims`
-  );
+  it(`countOverlapping() returns the number of square inches of fabric with multiple claims`, () => {
+    const fabric = makeFabric(10);
+    claimFabric([`#1 @ 1,3: 4x4`, `#2 @ 3,1: 4x4`, `#3 @ 5,5: 2x2`])(fabric);
+    expect(countOverlapping(fabric)).to.equal(4);
+  });
 });
