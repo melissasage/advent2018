@@ -25,15 +25,16 @@ const makeFabric = n => {
 };
 
 const claimFabric = data => fabric => {
+  const returnFabric = fabric.slice();
   for (let x = 0; x < data.length; x++) {
     const datum = parseData(data[x]);
     for (let row = datum.fromLeft; row < datum.fromLeft + datum.width; row++) {
       for (let col = datum.fromTop; col < datum.fromTop + datum.height; col++) {
-        fabric[row][col]++;
+        returnFabric[row][col]++;
       }
     }
   }
-  return fabric;
+  return returnFabric;
 };
 
 // could probably optimize this by using .reduce()
@@ -50,4 +51,34 @@ const countOverlapping = fabric => {
 // Solution for 03-01
 // console.log(countOverlapping(claimFabric(puzzleInput)(makeFabric(1000))));
 
-module.exports = { parseData, claimFabric, countOverlapping, makeFabric };
+const findNonOverlap = data => fabric => {
+  const returnFabric = fabric.slice();
+  const valid = new Set();
+  for (let x = 0; x < data.length; x++) {
+    const datum = parseData(data[x]);
+    valid.add(datum.id);
+    for (let row = datum.fromLeft; row < datum.fromLeft + datum.width; row++) {
+      for (let col = datum.fromTop; col < datum.fromTop + datum.height; col++) {
+        if (returnFabric[row][col] === 0) {
+          returnFabric[row][col] = datum.id;
+        } else {
+          valid.delete(datum.id);
+          valid.delete(returnFabric[row][col]);
+          returnFabric[row][col] = "X";
+        }
+      }
+    }
+  }
+  return valid.entries().next().value[0];
+};
+
+// Find solution
+// console.log(findNonOverlap(puzzleInput)(makeFabric(1000)));
+
+module.exports = {
+  parseData,
+  claimFabric,
+  countOverlapping,
+  makeFabric,
+  findNonOverlap
+};
